@@ -12,7 +12,7 @@ namespace Zeptomoby.OrbitTools
    /// <summary>
    /// Class to encapsulate geocentric coordinates.
    /// </summary>
-   public class Geo  
+   public class Geo
    {
       #region Properties
 
@@ -216,7 +216,7 @@ namespace Zeptomoby.OrbitTools
    /// <summary>
    /// Class to encapsulate topo-centric coordinates.
    /// </summary>
-   public class Topo  
+   public class Topo
    {
       #region Properties
 
