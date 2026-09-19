@@ -36,8 +36,8 @@ June, 2014
 
 ---
 
-This fork contains the same unmodified source files, but repackaged as a .NET 8 modern package.
+This fork contains the same unmodified source files, but repackaged as a modern .NET 8 / .NET 10 package.
 The code can be included in your project using NuGet packages.
 
 Stephan
-August, 2024
+September, 2026
