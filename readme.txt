@@ -41,3 +41,6 @@ The code can be included in your project using NuGet packages.
 
 Stephan
 September, 2026
+
+NuGet packages are published to nuget.org by the Publish NuGet GitHub Action
+when a GitHub Release is created (see .github/workflows/publish-nuget.yml).

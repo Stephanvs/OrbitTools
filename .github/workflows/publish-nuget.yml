@@ -1,0 +1,51 @@
+# Publishes Zeptomoby.OrbitTools.Core and Zeptomoby.OrbitTools.Orbit to nuget.org.
+#
+# One-time setup (nuget.org → username → Trusted Publishing → Add):
+#   Repository Owner: Stephanvs
+#   Repository:       OrbitTools
+#   Workflow File:    publish-nuget.yml
+#   Environment:      (leave empty)
+#
+# Trigger a publish by creating a GitHub Release, or by running this
+# workflow manually (Actions → Publish NuGet → Run workflow).
+name: Publish NuGet
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+concurrency:
+  group: nuget-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Pack
+        run: dotnet pack OrbitTools.sln --configuration Release --output ./nupkgs
+
+      - name: NuGet login
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: Stephanvs
+
+      - name: Push to nuget.org
+        run: >
+          dotnet nuget push "./nupkgs/*.nupkg"
+          --api-key "${{ steps.login.outputs.NUGET_API_KEY }}"
+          --source https://api.nuget.org/v3/index.json
+          --skip-duplicate
