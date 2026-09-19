@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AssemblyName>Zeptomoby.OrbitTools.Orbit</AssemblyName>
         <RootNamespace>Zeptomoby.OrbitTools</RootNamespace>
         <LangVersion>default</LangVersion>
         <PackageId>Zeptomoby.OrbitTools.Orbit</PackageId>
-        <Version>2.0.0.0</Version>
+        <Version>2.1.0.0</Version>
         <Title>Zeptomoby.OrbitTools.Orbit</Title>
         <Authors>Michael F. Henry</Authors>
         <Description>C# NORAD SGP4/SDP4 Implementation
@@ -53,12 +53,16 @@ June, 2014</Description>
         <PackageTags>OrbitTools</PackageTags>
         <Company>Zeptomoby.com</Company>
         <Product>OrbitTools Library - Public (unlicensed) Edition</Product>
-        <AssemblyVersion>2.0.0.0</AssemblyVersion>
-        <FileVersion>2.0.0.0</FileVersion>
+        <AssemblyVersion>2.1.0.0</AssemblyVersion>
+        <FileVersion>2.1.0.0</FileVersion>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageReleaseNotes>Revision History for the OrbitTools.Orbit assembly - Public Edition
 Copyright (c) Michael F. Henry
 www.zeptomoby.com/satellites
+
+Version 2.1.0.0 2026-09-19
+
+    Multi-target .NET 8.0 and .NET 10.0.
 
 Version 2.0.0.0 2024-08-28
 
