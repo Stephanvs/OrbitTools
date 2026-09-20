@@ -34,8 +34,14 @@ jobs:
         with:
           dotnet-version: 10.0.x
 
+      - name: Build
+        run: dotnet build OrbitTools.sln --configuration Release
+
       - name: Pack
-        run: dotnet pack OrbitTools.sln --configuration Release --output ./nupkgs
+        run: dotnet pack OrbitTools.sln --configuration Release --no-build --output ./nupkgs
+
+      - name: List packages
+        run: ls -la ./nupkgs
 
       - name: NuGet login
         uses: NuGet/login@v1
