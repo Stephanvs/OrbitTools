@@ -34,8 +34,18 @@ jobs:
         with:
           dotnet-version: 10.0.x
 
+      # GeneratePackageOnBuild=true makes `dotnet pack` skip the compile,
+      # which fails with NU5026 (TFM outputs missing). Override it in CI
+      # so pack builds, then writes nupkgs to ./nupkgs.
       - name: Pack
-        run: dotnet pack OrbitTools.sln --configuration Release --output ./nupkgs
+        run: >
+          dotnet pack OrbitTools.sln
+          --configuration Release
+          --output ./nupkgs
+          -p:GeneratePackageOnBuild=false
+
+      - name: List packages
+        run: ls -la ./nupkgs
 
       - name: NuGet login
         uses: NuGet/login@v1
